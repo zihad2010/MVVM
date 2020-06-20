@@ -10,7 +10,7 @@ import UIKit
 
 class UserListViewController: UIViewController {
     
-    var userViewModel = UserViewModel()
+   private var userViewModel = UserViewModel()
     
     // MARK: View Life Cycles
     
@@ -22,21 +22,16 @@ class UserListViewController: UIViewController {
     
     // MARK: TableView Info
     @IBOutlet weak var tableView: UITableView!
-    var userInfo = [UserInfo(name: "asraful", email: "asraful@gmail.com", phone: "01989146497"),
-                    UserInfo(name: "asraful", email: "asraful@gmail.com", phone: "01989146497"),
-                    UserInfo(name: "asraful", email: "asraful@gmail.com", phone: "01989146497"),
-                    UserInfo(name: "asraful", email: "asraful@gmail.com", phone: "01989146497")]
-    
-    
+
 }
 
 // MARK: UserViewModelDelegate implementation
 
 extension UserListViewController: UserViewModelDelegate{
     
-    func reloadListOfUserWith(userInfo: [UserInfo]) {
-        if userInfo.count != 0 {
-            self.tableView.reloadData()
+    func reloadListOfUserWith() {
+        DispatchQueue.main.async {[weak self] in
+             self?.tableView.reloadData()
         }
     }
 }
@@ -50,12 +45,12 @@ extension UserListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.userInfo.count
+        return self.userViewModel.numberOfRow()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let userInfoCell = self.tableView.dequeueReusableCell(withIdentifier: "UserInfoCell") as! UserInfoCell
-        userInfoCell.eachUser = userInfo[indexPath.row]
+        userInfoCell.eachUser = self.userViewModel.eachUser(indexPath: indexPath)
         return userInfoCell
     }
 }

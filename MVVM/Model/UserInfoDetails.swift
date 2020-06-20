@@ -12,11 +12,12 @@ struct UserInfoDetails: Codable {
     
     var id: Int?
     var name: String?
-    var userName: String?
+    var username: String?
     var email: String?
     var address: Address?
     var phone: String?
-    var company: String
+    var company: Company?
+    var website: String?
 
 }
 
@@ -32,7 +33,7 @@ struct Address: Codable {
 struct Geo: Codable {
     
     var lat: String?
-    var lan: String?
+    var lag: String?
 }
 
 struct Company: Codable {

@@ -20,7 +20,7 @@ extension JSONDecoder{
     static func decodeData<Model: Codable>(model: Model.Type,_ data:Data,completion: @escaping(DecodeHandler)){
         let decoder = JSONDecoder()
         do {
-            let data = try decoder.decode(Model.self, from: data)
+            let data = try decoder.decode(Model.self, from: data) 
             completion(.success(data))
         } catch {
             completion(.failure(error.localizedDescription))
