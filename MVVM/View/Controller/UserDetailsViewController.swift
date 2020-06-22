@@ -10,6 +10,7 @@ import UIKit
 
 class UserDetailsViewController: UIViewController {
     
+    
     var userDetailsViewModel = UserDetailsViewModel()
     
     // MARK: -User Info
@@ -23,8 +24,22 @@ class UserDetailsViewController: UIViewController {
     @IBOutlet weak var catchparaseLabel: UILabel!
     
     // MARK: - View LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loadUserDetails()
+    }
+    
+    //MARK: - Private Methods
+    private func loadUserDetails(){
+        let userDetails = userDetailsViewModel.getUserDetails()
+        self.userNameLabel.text = userDetails.username
+        self.emailLabel.text = userDetails.email
+        self.streetLabel.text = userDetails.street
+        self.cityLabel.text = userDetails.city
+        self.zipCodeLabel.text = userDetails.zipCode
+        self.webSiteLabel.text = userDetails.website
+        self.companyNameLabel.text = userDetails.company
+        self.catchparaseLabel.text = userDetails.catchPhrase
     }
 }

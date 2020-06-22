@@ -7,7 +7,19 @@
 //
 
 import Foundation
+
+protocol UserDetailsViewModelProtocal {
+
+    func notifyWithUserDetails(userDetails: UserDetails)
+}
+
 class UserDetailsViewModel {
-    var userDetail = UserInfoDetails()
+  
+    var delegate: UserDetailsViewModelProtocal?
+    var userDetails :UserDetails?
+    
+    func getUserDetails() -> UserDetails {
+        return userDetails!
+    }
     
 }

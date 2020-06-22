@@ -10,7 +10,9 @@ import Foundation
 
 protocol UserViewModelDelegate {
     func reloadListOfUserWith()
+    
 }
+
 class UserViewModel {
     
     var userInfoDetails = [UserInfoDetails]()
@@ -25,6 +27,9 @@ class UserViewModel {
     }
     func eachUser(indexPath: IndexPath) -> UserInfo {
         return UserInfo(userInfoDetails:userInfoDetails[indexPath.row])
+    }
+    func  getUserDetailsBy(indexPath: IndexPath) -> UserDetails{
+        return UserDetails(userInfoDetails: userInfoDetails[indexPath.row])
     }
 }
 

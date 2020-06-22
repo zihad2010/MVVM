@@ -8,11 +8,12 @@
 
 import UIKit
 
+
 class UserListViewController: UIViewController {
     
-   private var userViewModel = UserViewModel()
+    private var userViewModel = UserViewModel()
     
-    // MARK: View Life Cycles
+    // MARK: - View Life Cycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,23 +21,29 @@ class UserListViewController: UIViewController {
         self.userViewModel.getUserList()
     }
     
-    // MARK: TableView Info
+    // MARK: - TableView Info
     @IBOutlet weak var tableView: UITableView!
-
+    
+    //MARK: - Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let userDetailsViewController = segue.destination as! UserDetailsViewController
+        userDetailsViewController.userDetailsViewModel.userDetails = userViewModel.getUserDetailsBy(indexPath: sender as! IndexPath)
+        
+    }
 }
 
-// MARK: UserViewModelDelegate implementation
+// MARK: - UserViewModelDelegate implementation
 
 extension UserListViewController: UserViewModelDelegate{
     
     func reloadListOfUserWith() {
-        DispatchQueue.main.async {[weak self] in
-             self?.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
     }
 }
 
-//MARK: table view delegate & datasource implementation
+//MARK: - table view delegate & datasource implementation
 
 extension UserListViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -52,5 +59,8 @@ extension UserListViewController: UITableViewDelegate, UITableViewDataSource {
         let userInfoCell = self.tableView.dequeueReusableCell(withIdentifier: "UserInfoCell") as! UserInfoCell
         userInfoCell.eachUser = self.userViewModel.eachUser(indexPath: indexPath)
         return userInfoCell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: SegueConstant.userDetailsViewController.identifier , sender: indexPath)
     }
 }

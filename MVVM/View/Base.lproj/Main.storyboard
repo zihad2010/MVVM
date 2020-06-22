@@ -125,7 +125,7 @@
                     <navigationItem key="navigationItem" title="User List" id="t44-Rg-H67"/>
                     <connections>
                         <outlet property="tableView" destination="Q7J-nP-I5I" id="Wul-M7-4aM"/>
-                        <segue destination="70E-xI-7eG" kind="show" id="EAP-Vr-Ik2"/>
+                        <segue destination="70E-xI-7eG" kind="show" identifier="UserDetailsViewController" id="EAP-Vr-Ik2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -340,7 +340,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zOM-4X-yf2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1821.7391304347827" y="128.57142857142856"/>
+            <point key="canvasLocation" x="1849" y="138"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9WH-0o-RCU">

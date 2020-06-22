@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9665F64E24A146540013F922 /* SegueConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9665F64D24A146540013F922 /* SegueConstant.swift */; };
 		96CFCEC8249DC9E20068CD6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFCEC7249DC9E20068CD6D /* AppDelegate.swift */; };
 		96CFCECA249DC9E20068CD6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFCEC9249DC9E20068CD6D /* SceneDelegate.swift */; };
 		96CFCED2249DC9E20068CD6D /* MVVM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 96CFCED0249DC9E20068CD6D /* MVVM.xcdatamodeld */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9665F64D24A146540013F922 /* SegueConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueConstant.swift; sourceTree = "<group>"; };
 		96CFCEC4249DC9E20068CD6D /* MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CFCEC7249DC9E20068CD6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96CFCEC9249DC9E20068CD6D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9665F64C24A143430013F922 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				9665F64D24A146540013F922 /* SegueConstant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
 		96CFCEBB249DC9E20068CD6D = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +220,7 @@
 		96CFCF10249DF2120068CD6D /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				9665F64C24A143430013F922 /* Constant */,
 				96CFCF19249DF2420068CD6D /* Network */,
 			);
 			path = Shared;
@@ -361,6 +372,7 @@
 				96CFCF1B249E846A0068CD6D /* UserDetailsViewModel.swift in Sources */,
 				96CFCF0B249DE3360068CD6D /* UserInfoDetails.swift in Sources */,
 				96CFCF17249DF22B0068CD6D /* NetworkManager.swift in Sources */,
+				9665F64E24A146540013F922 /* SegueConstant.swift in Sources */,
 				96CFCEC8249DC9E20068CD6D /* AppDelegate.swift in Sources */,
 				96CFCECA249DC9E20068CD6D /* SceneDelegate.swift in Sources */,
 				96CFCF07249DDCC90068CD6D /* UserInfoCell.swift in Sources */,
