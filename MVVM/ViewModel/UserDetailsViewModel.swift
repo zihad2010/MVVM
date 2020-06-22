@@ -8,14 +8,14 @@
 
 import Foundation
 
-protocol UserDetailsViewModelProtocal {
+protocol UserDetailsViewModelDelegate {
 
     func notifyWithUserDetails(userDetails: UserDetails)
 }
 
 class UserDetailsViewModel {
   
-    var delegate: UserDetailsViewModelProtocal?
+    var delegate: UserDetailsViewModelDelegate?
     var userDetails :UserDetails?
     
     func getUserDetails() -> UserDetails {
