@@ -10,8 +10,7 @@ import UIKit
 
 class UserDetailsViewController: UIViewController {
     
-    
-    var userDetailsViewModel = UserDetailsViewModel()
+    lazy var userDetailsViewModel = UserDetailsViewModel()
     
     // MARK: -User Info
     @IBOutlet weak var userNameLabel: UILabel!
@@ -27,19 +26,20 @@ class UserDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadUserDetails()
-    }
-    
-    //MARK: - Private Methods
-    private func loadUserDetails(){
-        let userDetails = userDetailsViewModel.getUserDetails()
-        self.userNameLabel.text = userDetails.username
-        self.emailLabel.text = userDetails.email
-        self.streetLabel.text = userDetails.street
-        self.cityLabel.text = userDetails.city
-        self.zipCodeLabel.text = userDetails.zipCode
-        self.webSiteLabel.text = userDetails.website
-        self.companyNameLabel.text = userDetails.company
-        self.catchparaseLabel.text = userDetails.catchPhrase
+        userDetailsViewModel.fetchUser { [weak self](user) in
+            guard let itSelf = self else{
+                return
+            }
+            itSelf.userNameLabel.text = user.username
+            itSelf.emailLabel.text = user.email
+            itSelf.streetLabel.text = user.street
+            itSelf.cityLabel.text = user.city
+            itSelf.zipCodeLabel.text = user.zipCode
+            itSelf.webSiteLabel.text = user.website
+            itSelf.companyNameLabel.text = user.company
+            itSelf.catchparaseLabel.text = user.catchPhrase
+        }
     }
 }
+
+

@@ -8,18 +8,13 @@
 
 import Foundation
 
-protocol UserDetailsViewModelDelegate {
 
-    func notifyWithUserDetails(userDetails: UserDetails)
-}
-
-class UserDetailsViewModel {
+struct UserDetailsViewModel {
   
-    var delegate: UserDetailsViewModelDelegate?
     var userDetails :UserDetails?
-    
-    func getUserDetails() -> UserDetails {
-        return userDetails!
+   
+
+    func fetchUser(handeler: (UserDetails)-> Void)  {
+        handeler(userDetails!)
     }
-    
 }

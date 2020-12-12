@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9665F64E24A146540013F922 /* SegueConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9665F64D24A146540013F922 /* SegueConstant.swift */; };
+		968015A62582926400D019F7 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968015A52582926400D019F7 /* Observable.swift */; };
+		968015AB2582929600D019F7 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968015AA2582929600D019F7 /* Observer.swift */; };
+		96A23F1E25833B8100CE31BA /* UserInfoDetailsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A23F1D25833B8100CE31BA /* UserInfoDetailsDataSource.swift */; };
 		96CFCEC8249DC9E20068CD6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFCEC7249DC9E20068CD6D /* AppDelegate.swift */; };
 		96CFCECA249DC9E20068CD6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFCEC9249DC9E20068CD6D /* SceneDelegate.swift */; };
 		96CFCED2249DC9E20068CD6D /* MVVM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 96CFCED0249DC9E20068CD6D /* MVVM.xcdatamodeld */; };
@@ -48,6 +51,9 @@
 
 /* Begin PBXFileReference section */
 		9665F64D24A146540013F922 /* SegueConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueConstant.swift; sourceTree = "<group>"; };
+		968015A52582926400D019F7 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		968015AA2582929600D019F7 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
+		96A23F1D25833B8100CE31BA /* UserInfoDetailsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoDetailsDataSource.swift; sourceTree = "<group>"; };
 		96CFCEC4249DC9E20068CD6D /* MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CFCEC7249DC9E20068CD6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96CFCEC9249DC9E20068CD6D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +114,15 @@
 			path = Constant;
 			sourceTree = "<group>";
 		};
+		968015AF258292A600D019F7 /* Observer */ = {
+			isa = PBXGroup;
+			children = (
+				968015A52582926400D019F7 /* Observable.swift */,
+				968015AA2582929600D019F7 /* Observer.swift */,
+			);
+			path = Observer;
+			sourceTree = "<group>";
+		};
 		96CFCEBB249DC9E20068CD6D = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +151,7 @@
 				96CFCEFE249DCA270068CD6D /* View */,
 				96CFCEFD249DCA1C0068CD6D /* ViewModel */,
 				96CFCEFC249DCA0E0068CD6D /* Model */,
+				96CFCF02249DCA980068CD6D /* Controller */,
 				96CFCED3249DC9E40068CD6D /* Assets.xcassets */,
 				96CFCED5249DC9E40068CD6D /* LaunchScreen.storyboard */,
 				96CFCED8249DC9E40068CD6D /* Info.plist */,
@@ -193,7 +209,6 @@
 		96CFCEFE249DCA270068CD6D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				96CFCF02249DCA980068CD6D /* Controller */,
 				96CFCF05249DDC890068CD6D /* Cell */,
 				96CFCEFF249DCA730068CD6D /* Main.storyboard */,
 			);
@@ -205,6 +220,7 @@
 			children = (
 				96CFCF0C249DE65F0068CD6D /* UserListViewController.swift */,
 				96CFCF1C249E848C0068CD6D /* UserDetailsViewController.swift */,
+				96A23F1D25833B8100CE31BA /* UserInfoDetailsDataSource.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -222,6 +238,7 @@
 			children = (
 				9665F64C24A143430013F922 /* Constant */,
 				96CFCF19249DF2420068CD6D /* Network */,
+				968015AF258292A600D019F7 /* Observer */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -299,7 +316,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "Steve JobsOne";
 				TargetAttributes = {
 					96CFCEC3249DC9E20068CD6D = {
@@ -367,11 +384,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96A23F1E25833B8100CE31BA /* UserInfoDetailsDataSource.swift in Sources */,
+				968015A62582926400D019F7 /* Observable.swift in Sources */,
 				96CFCF0D249DE65F0068CD6D /* UserListViewController.swift in Sources */,
 				96CFCF0F249DE6850068CD6D /* UserViewModel.swift in Sources */,
 				96CFCF1B249E846A0068CD6D /* UserDetailsViewModel.swift in Sources */,
 				96CFCF0B249DE3360068CD6D /* UserInfoDetails.swift in Sources */,
 				96CFCF17249DF22B0068CD6D /* NetworkManager.swift in Sources */,
+				968015AB2582929600D019F7 /* Observer.swift in Sources */,
 				9665F64E24A146540013F922 /* SegueConstant.swift in Sources */,
 				96CFCEC8249DC9E20068CD6D /* AppDelegate.swift in Sources */,
 				96CFCECA249DC9E20068CD6D /* SceneDelegate.swift in Sources */,
@@ -462,6 +482,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -522,6 +543,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

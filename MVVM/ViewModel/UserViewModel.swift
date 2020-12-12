@@ -8,42 +8,23 @@
 
 import Foundation
 
-protocol UserViewModelDelegate {
-    func reloadListOfUserWith()
+struct UserViewModel {
     
-}
-
-class UserViewModel {
+    weak var dataSource : GenericDataSource<UserInfoDetails>?
     
-    var userInfoDetails = [UserInfoDetails]()
-    
-    
-    typealias handeler = ([UserInfoDetails]) -> Void
-    
-    var delegate: UserViewModelDelegate?
-    
-    func numberOfRow() -> Int {
-        return self.userInfoDetails.count
-    }
-    func eachUser(indexPath: IndexPath) -> UserInfo {
-        return UserInfo(userInfoDetails:userInfoDetails[indexPath.row])
-    }
-    func  getUserDetailsBy(indexPath: IndexPath) -> UserDetails{
-        return UserDetails(userInfoDetails: userInfoDetails[indexPath.row])
+    init(dataSource: GenericDataSource<UserInfoDetails>?) {
+        self.dataSource = dataSource
     }
 }
 
 extension UserViewModel{
     
     func getUserList() {
-        NetworkManager.shared.sendRequest(url: "https://jsonplaceholder.typicode.com/users") {[weak self] (result) in
-            guard let itSelf = self else {
-                return
-            }
+        NetworkManager.shared.sendRequest(url: "https://jsonplaceholder.typicode.com/users") { (result) in
+            
             switch result{
             case .networkFinishedWithData(let data):
-                itSelf.parseData(data: data)
-                itSelf.delegate?.reloadListOfUserWith()
+                parseData(data: data)
                 print(data)
                 break
             case .networkFinishedWithError(let error):
@@ -53,16 +34,13 @@ extension UserViewModel{
         }
     }
     
-    func parseData(data: Data) {
+     func parseData(data: Data) {
         
-        JSONDecoder.decodeData(model: [UserInfoDetails].self, data) {[weak self] (result) in
+        JSONDecoder.decodeData(model: [UserInfoDetails].self, data) { (result) in
             
-            guard let itSelf = self else{
-                return
-            }
             switch result{
             case .success(let data ):
-                itSelf.userInfoDetails = data as! [UserInfoDetails]
+                dataSource?.data.value = data as! [UserInfoDetails]
                 break
             case .failure(let mess):
                 print("Parse data error:",mess)
@@ -71,4 +49,5 @@ extension UserViewModel{
         }
         
     }
+    
 }
